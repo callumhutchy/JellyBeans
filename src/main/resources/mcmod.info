@@ -1,0 +1,16 @@
+[
+{
+  "modid": "jellybeans",
+  "name": "Jelly Beans",
+  "description": "Adds jelly beans to the game, nom nom nom.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "callumhutchy.co.uk/JellyBeans",
+  "updateUrl": "",
+  "authors": ["callumhutchy"],
+  "credits": "Callum Hutchinson for making this mod",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
