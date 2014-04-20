@@ -5,6 +5,7 @@ public class ItemIDs {
 	
 	
 	public static int GELATIN_ID;
+	public static int JELLY_BEAN_BAG_ID;
 
 	public static int APPLE_JELLY_BEAN_ID;
 	public static int RED_JELLY_BEAN_ID;
@@ -29,6 +30,7 @@ public class ItemIDs {
 
 	public static void init() {
 		
+		JELLY_BEAN_BAG_ID = 999;
 		GELATIN_ID = 1000;
 		
 		APPLE_JELLY_BEAN_ID = 1001;
