@@ -20,7 +20,7 @@ import net.minecraftforge.event.ForgeSubscribe;
 public class GuiBuffBar extends Gui{
 
 	private Minecraft mc;
-	private static final ResourceLocation field_test = new ResourceLocation("minecraft:textures/gui/container/inventory.png");
+	private static final ResourceLocation resourcelocation = new ResourceLocation("minecraft:textures/gui/container/inventory.png");
     
 
 	  public GuiBuffBar(Minecraft mc)
@@ -37,10 +37,6 @@ public class GuiBuffBar extends Gui{
 	  private static final int BUFF_ICON_BASE_V_OFFSET = 198;
 	  private static final int BUFF_ICONS_PER_ROW = 8;
 	  
-	  //
-	  // This event is called by GuiIngameForge during each frame by
-	  // GuiIngameForge.pre() and GuiIngameForce.post().
-	  //
 	  @ForgeSubscribe(priority = EventPriority.NORMAL)
 	  public void onRenderExperienceBar(RenderGameOverlayEvent event)
 	  {
@@ -63,7 +59,7 @@ public class GuiBuffBar extends Gui{
 	    {
 	      GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
 	      GL11.glDisable(GL11.GL_LIGHTING);      
-	      this.mc.renderEngine.bindTexture(field_test);
+	      this.mc.renderEngine.bindTexture(resourcelocation);
 
 	      for (Iterator iterator = this.mc.thePlayer.getActivePotionEffects()
 	          .iterator(); iterator.hasNext(); xPos += BUFF_ICON_SPACING)

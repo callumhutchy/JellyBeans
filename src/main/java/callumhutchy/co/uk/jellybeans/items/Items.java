@@ -1,11 +1,30 @@
 package callumhutchy.co.uk.jellybeans.items;
 
+import callumhutchy.co.uk.jellybeans.items.jellybeans.AppleJellyBean;
+import callumhutchy.co.uk.jellybeans.items.jellybeans.BlackJellyBean;
+import callumhutchy.co.uk.jellybeans.items.jellybeans.BlazeJellyBean;
+import callumhutchy.co.uk.jellybeans.items.jellybeans.BlueJellyBean;
+import callumhutchy.co.uk.jellybeans.items.jellybeans.ChocolateJellyBean;
+import callumhutchy.co.uk.jellybeans.items.jellybeans.CyanJellyBean;
+import callumhutchy.co.uk.jellybeans.items.jellybeans.GreenJellyBean;
+import callumhutchy.co.uk.jellybeans.items.jellybeans.ItemJellyBean;
+import callumhutchy.co.uk.jellybeans.items.jellybeans.LightBlueJellyBean;
+import callumhutchy.co.uk.jellybeans.items.jellybeans.LimeGreenJellyBean;
+import callumhutchy.co.uk.jellybeans.items.jellybeans.MelonJellyBean;
+import callumhutchy.co.uk.jellybeans.items.jellybeans.OrangeJellyBean;
+import callumhutchy.co.uk.jellybeans.items.jellybeans.PinkJellyBean;
+import callumhutchy.co.uk.jellybeans.items.jellybeans.PurpleJellyBean;
+import callumhutchy.co.uk.jellybeans.items.jellybeans.RedJellyBean;
+import callumhutchy.co.uk.jellybeans.items.jellybeans.WhiteJellyBean;
+import callumhutchy.co.uk.jellybeans.items.jellybeans.YellowJellyBean;
 import callumhutchy.co.uk.jellybeans.resources.ItemIDs;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
+import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
+import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 
 public class Items {
@@ -29,6 +48,8 @@ public class Items {
 	public static ItemJellyBean blazeJellyBean;
 	public static Item redFoodColouring;
 	
+	public static Block testChest;
+	
 public static void init() {
 	//Assigning items to classes
 	gelatin = new Gelatin(1000);
@@ -50,6 +71,8 @@ public static void init() {
 	blazeJellyBean = new BlazeJellyBean(ItemIDs.BLAZE_JELLY_BEAN_ID,1,0.5F,false);
 	
 	redFoodColouring = new RedFoodColouring(ItemIDs.RED_FOOD_COLOURING_ID);
+	
+	testChest = new TestChest(2000);
 		
 }
 
@@ -73,6 +96,12 @@ public static void addItemstoGame(){
 		GameRegistry.registerItem(melonJellyBean, melonJellyBean.getUnlocalizedName());
 		GameRegistry.registerItem(blazeJellyBean, blazeJellyBean.getUnlocalizedName());
 		
+		//GameRegistry.registerItem(redFoodColouring, redFoodColouring.getUnlocalizedName());
+		
+		GameRegistry.registerBlock(testChest, testChest.getUnlocalizedName());
+		
+		GameRegistry.registerTileEntity(TileEntityChest.class, "containerChest");
+		
 }
 public static void addNames(){
 	//Registering the names of the items
@@ -93,6 +122,20 @@ public static void addNames(){
 		LanguageRegistry.addName(chocolateJellyBean, "Chocolate Jelly Bean");
 		LanguageRegistry.addName(melonJellyBean, "Melon Jelly Bean");
 		LanguageRegistry.addName(blazeJellyBean, "Spicy Jelly Bean");
+		
+		//LanguageRegistry.addName(redFoodColouring, "Red Food Colouring");
+		
+		LanguageRegistry.addName(testChest, "Test Chest");
+}
+
+public static void addCraftingRecipes(){
+	//Add crafting recipes for the jellybeans
+	ItemStack apple = new ItemStack(Item.appleRed);
+	ItemStack sugar = new ItemStack(Item.sugar);
+	ItemStack waterbottle = new ItemStack(Item.potion);
+	ItemStack reddye = new ItemStack(Item.dyePowder, 1, 1);
+	GameRegistry.addShapelessRecipe(new ItemStack(Items.appleJellyBean,4), gelatin,apple,sugar,waterbottle);
+	GameRegistry.addShapelessRecipe(new ItemStack(Items.redJellyBean, 4), gelatin,reddye,sugar,waterbottle);
 }
 
 }
