@@ -22,12 +22,13 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 
-public class Items {
+public class JellyBeansItems {
 	//Intialising Items
 	public static Item gelatin;
 	public static ItemJellyBean appleJellyBean;
@@ -52,7 +53,7 @@ public class Items {
 	
 public static void init() {
 	//Assigning items to classes
-	gelatin = new Gelatin(1000);
+	gelatin = new Gelatin();
 	appleJellyBean = new AppleJellyBean(ItemIDs.APPLE_JELLY_BEAN_ID,2,0.5F,false);
 	redJellyBean = new RedJellyBean(ItemIDs.RED_JELLY_BEAN_ID,2,0.5F,false);
 	blackJellyBean = new BlackJellyBean(ItemIDs.BLACK_JELLY_BEAN_ID,2,0.5F,false);
@@ -69,10 +70,6 @@ public static void init() {
 	chocolateJellyBean = new ChocolateJellyBean(ItemIDs.CHOCOLATE_JELLY_BEAN_ID,1,0.5F,false);
 	melonJellyBean = new MelonJellyBean(ItemIDs.MELON_JELLY_BEAN_ID,1,0.5F,false);
 	blazeJellyBean = new BlazeJellyBean(ItemIDs.BLAZE_JELLY_BEAN_ID,1,0.5F,false);
-	
-	redFoodColouring = new RedFoodColouring(ItemIDs.RED_FOOD_COLOURING_ID);
-	
-	testChest = new TestChest(2000);
 		
 }
 
@@ -96,11 +93,6 @@ public static void addItemstoGame(){
 		GameRegistry.registerItem(melonJellyBean, melonJellyBean.getUnlocalizedName());
 		GameRegistry.registerItem(blazeJellyBean, blazeJellyBean.getUnlocalizedName());
 		
-		//GameRegistry.registerItem(redFoodColouring, redFoodColouring.getUnlocalizedName());
-		
-		GameRegistry.registerBlock(testChest, testChest.getUnlocalizedName());
-		
-		GameRegistry.registerTileEntity(TileEntityChest.class, "containerChest");
 		
 }
 public static void addNames(){
@@ -125,17 +117,49 @@ public static void addNames(){
 		
 		//LanguageRegistry.addName(redFoodColouring, "Red Food Colouring");
 		
-		LanguageRegistry.addName(testChest, "Test Chest");
+		
 }
 
 public static void addCraftingRecipes(){
 	//Add crafting recipes for the jellybeans
-	ItemStack apple = new ItemStack(Item.appleRed);
-	ItemStack sugar = new ItemStack(Item.sugar);
-	ItemStack waterbottle = new ItemStack(Item.potion);
-	ItemStack reddye = new ItemStack(Item.dyePowder, 1, 1);
-	GameRegistry.addShapelessRecipe(new ItemStack(Items.appleJellyBean,4), gelatin,apple,sugar,waterbottle);
-	GameRegistry.addShapelessRecipe(new ItemStack(Items.redJellyBean, 4), gelatin,reddye,sugar,waterbottle);
+	ItemStack apple = new ItemStack(Items.apple);
+	ItemStack sugar = new ItemStack(Items.sugar);
+	ItemStack waterbottle = new ItemStack(Items.potionitem);
+	ItemStack reddye = new ItemStack(Items.dye, 1, 1);
+	ItemStack blackdye = new ItemStack(Items.dye, 1, 0);
+	ItemStack bluedye = new ItemStack(Items.dye, 1,4);
+	ItemStack purpledye = new ItemStack(Items.dye, 1, 5);
+	ItemStack cyandye = new ItemStack(Items.dye, 1, 6);
+	ItemStack pinkdye = new ItemStack(Items.dye, 1, 9);
+	ItemStack limedye = new ItemStack(Items.dye,1 , 10);
+	ItemStack lightbluedye = new ItemStack(Items.dye, 1, 12);
+	ItemStack orangedye = new ItemStack(Items.dye, 1, 14);
+	ItemStack whitedye = new ItemStack(Items.dye,1,15);
+	ItemStack greendye = new ItemStack(Items.dye,1, 2);
+	ItemStack yellowdye = new ItemStack(Items.dye,1,11);
+	ItemStack chocolate = new ItemStack(Items.dye,1, 3);
+	ItemStack melon = new ItemStack(Items.melon);
+	ItemStack blazepowder = new ItemStack(Items.blaze_powder);
+	GameRegistry.addShapelessRecipe(new ItemStack(JellyBeansItems.appleJellyBean,4), gelatin,apple,sugar,waterbottle);
+	GameRegistry.addShapelessRecipe(new ItemStack(JellyBeansItems.redJellyBean, 4), gelatin,reddye,sugar,waterbottle);
+	GameRegistry.addShapelessRecipe(new ItemStack(JellyBeansItems.blackJellyBean, 4), gelatin,blackdye,sugar,waterbottle);
+	GameRegistry.addShapelessRecipe(new ItemStack(JellyBeansItems.blueJellyBean, 4), gelatin,bluedye,sugar,waterbottle);
+	GameRegistry.addShapelessRecipe(new ItemStack(JellyBeansItems.purpleJellyBean, 4), gelatin,purpledye,sugar,waterbottle);
+	GameRegistry.addShapelessRecipe(new ItemStack(JellyBeansItems.cyanJellyBean, 4), gelatin,cyandye,sugar,waterbottle);
+	GameRegistry.addShapelessRecipe(new ItemStack(JellyBeansItems.pinkJellyBean, 4), gelatin,pinkdye,sugar,waterbottle);
+	GameRegistry.addShapelessRecipe(new ItemStack(JellyBeansItems.limegreenJellyBean, 4), gelatin,limedye,sugar,waterbottle);
+	GameRegistry.addShapelessRecipe(new ItemStack(JellyBeansItems.lightblueJellyBean, 4), gelatin,lightbluedye,sugar,waterbottle);
+	GameRegistry.addShapelessRecipe(new ItemStack(JellyBeansItems.orangeJellyBean, 4), gelatin,orangedye,sugar,waterbottle);
+	GameRegistry.addShapelessRecipe(new ItemStack(JellyBeansItems.whiteJellyBean, 4), gelatin,whitedye,sugar,waterbottle);
+	GameRegistry.addShapelessRecipe(new ItemStack(JellyBeansItems.greenJellyBean, 4), gelatin,greendye,sugar,waterbottle);
+	GameRegistry.addShapelessRecipe(new ItemStack(JellyBeansItems.yellowJellyBean, 4), gelatin,yellowdye,sugar,waterbottle);
+	GameRegistry.addShapelessRecipe(new ItemStack(JellyBeansItems.chocolateJellyBean, 4), gelatin,chocolate,sugar,waterbottle);
+	GameRegistry.addShapelessRecipe(new ItemStack(JellyBeansItems.melonJellyBean, 4), gelatin,melon,sugar,waterbottle);
+	GameRegistry.addShapelessRecipe(new ItemStack(JellyBeansItems.blazeJellyBean, 4), gelatin,blazepowder,sugar,waterbottle);
+	
+	
+	
+
 }
 
 }

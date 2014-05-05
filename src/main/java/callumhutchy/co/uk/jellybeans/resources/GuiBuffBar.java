@@ -7,6 +7,7 @@ import java.util.Iterator;
 
 import org.lwjgl.opengl.GL11;
 
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Gui;
 import net.minecraft.potion.Potion;
@@ -14,8 +15,6 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.client.event.RenderGameOverlayEvent.ElementType;
-import net.minecraftforge.event.EventPriority;
-import net.minecraftforge.event.ForgeSubscribe;
 
 public class GuiBuffBar extends Gui{
 
@@ -37,7 +36,7 @@ public class GuiBuffBar extends Gui{
 	  private static final int BUFF_ICON_BASE_V_OFFSET = 198;
 	  private static final int BUFF_ICONS_PER_ROW = 8;
 	  
-	  @ForgeSubscribe(priority = EventPriority.NORMAL)
+	  @SubscribeEvent
 	  public void onRenderExperienceBar(RenderGameOverlayEvent event)
 	  {
 	    // 

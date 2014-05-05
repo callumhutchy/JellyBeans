@@ -12,7 +12,7 @@ import callumhutchy.co.uk.jellybeans.JellyBeans;
 public class ItemJellyBean extends ItemFood {
 	
 	public ItemJellyBean(int i, int j, float f, boolean b) {
-		super(i, j,f, b);
+		super(i, j,b);
 		this.setMaxStackSize(64);
 		this.setCreativeTab(JellyBeans.tabJellyBeans);
 		this.setAlwaysEdible();

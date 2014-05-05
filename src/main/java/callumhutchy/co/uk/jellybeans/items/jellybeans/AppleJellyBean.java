@@ -1,6 +1,5 @@
 package callumhutchy.co.uk.jellybeans.items.jellybeans;
 
-import cpw.mods.fml.common.network.Player;
 import callumhutchy.co.uk.jellybeans.JellyBeans;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
